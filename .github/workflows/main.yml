@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact-${{ matrix.os }}
-          path: go-sha256
+          path: ${{ matrix.os == 'windows-latest' && 'go-sha256.exe' || 'go-sha256' }}
   release:
     needs: build
     runs-on: ubuntu-latest
