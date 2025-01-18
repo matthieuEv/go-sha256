@@ -64,6 +64,14 @@ jobs:
           name: build-artifact-macos-latest
           path: build-macos
 
+      - run: ll build-linux
+
+      - name: Move binary to correct name
+        run: |
+          mv build-linux/go-sha256 go-sha256-linux
+          mv build-macos/go-sha256 go-sha256-macos
+          mv build-windows/go-sha256.exe go-sha256-windows.exe
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         env:
@@ -72,6 +80,6 @@ jobs:
           tag_name: ${{ env.TAG_DATE }}
           name: Release ${{ env.TAG_DATE }}
           files: |
-            build-windows/go-sha256.exe
-            build-linux/go-sha256
-            build-macos/go-sha256
+            go-sha256-linux
+            go-sha256-macos
+            go-sha256-windows.exe
