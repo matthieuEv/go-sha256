@@ -64,7 +64,7 @@ jobs:
           name: build-artifact-macos-latest
           path: build-macos
 
-      - run: ll build-linux
+      - run: ls -la build-linux
 
       - name: Move binary to correct name
         run: |
