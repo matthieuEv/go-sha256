@@ -20,7 +20,14 @@ cd go-sha256
 go build -o go-sha256
 ```
 
-After you have built the project, you can run it by executing the following command:
+
+### Use the pre-built binary
+
+You can also use the pre-built binary that is available in the releases section of this repository. You can download the binary and run it on your machine.
+
+## Run
+
+After you have built the project or downloaded the pre-built binary, you can run the program by passing the string you want to hash as an argument. You can pass multiple strings as arguments and the program will hash each string separately.
 
 ```bash
 ./go-sha256 hello # one argument

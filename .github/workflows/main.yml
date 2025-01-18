@@ -64,11 +64,6 @@ jobs:
           name: build-artifact-macos-latest
           path: build-macos
 
-      - name: ls
-        run: |
-          ls -la
-          ls -la build-windows
-
       - name: Create Release
         uses: softprops/action-gh-release@v2
         env:
@@ -77,6 +72,6 @@ jobs:
           tag_name: ${{ env.TAG_DATE }}
           name: Release ${{ env.TAG_DATE }}
           files: |
-            go-sha256-windows.exe
-            go-sha256-linux
-            go-sha256-macos
+            build-windows/go-sha256-windows.exe
+            build-linux/go-sha256-linux
+            build-macos/go-sha256-macos
