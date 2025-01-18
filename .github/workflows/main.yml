@@ -47,19 +47,19 @@ jobs:
         run: echo "TAG_DATE=$(date +'%Y%m%d')" >> $GITHUB_ENV
       
       - name: Download build artifacts for Windows
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact-windows-latest
           path: build-windows
 
       - name: Download build artifacts for Linux
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact-ubuntu-latest
           path: build-linux
 
       - name: Download build artifacts for macOS
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-artifact-macos-latest
           path: build-macos
