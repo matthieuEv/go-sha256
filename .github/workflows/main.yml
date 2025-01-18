@@ -49,7 +49,7 @@ jobs:
       - name: Download build artifacts for Windows
         uses: actions/download-artifact@v4
         with:
-          name: build-artifact-windows-latest
+          name: build-artifact-windows-latest.exe
           path: build-windows
 
       - name: Download build artifacts for Linux
