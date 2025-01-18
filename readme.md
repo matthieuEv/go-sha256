@@ -13,7 +13,7 @@ To build the project yourself, you need to have Go installed on your machine. Yo
 After you have Go installed, you can clone this repository and build the project by running the following commands:
 
 ```bash
-git clone 
+git clone https://github.com/matthieuEv/go-sha256.git
 
 cd go-sha256
 
@@ -23,7 +23,7 @@ go build -o go-sha256
 
 ### Use the pre-built binary
 
-You can also use the pre-built binary that is available in the releases section of this repository. You can download the binary and run it on your machine.
+You can also use the pre-built binary that is available in the [releases section](https://github.com/matthieuEv/go-sha256/releases) of this repository. You can download the binary for your operating system and architecture and run it directly.
 
 ## Run
 

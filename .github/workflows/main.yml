@@ -64,8 +64,6 @@ jobs:
           name: build-artifact-macos-latest
           path: build-macos
 
-      - run: ls -la build-linux
-
       - name: Move binary to correct name
         run: |
           mv build-linux/go-sha256 go-sha256-linux
