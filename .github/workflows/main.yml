@@ -72,6 +72,6 @@ jobs:
           tag_name: ${{ env.TAG_DATE }}
           name: Release ${{ env.TAG_DATE }}
           files: |
-            build-windows/go-sha256-windows.exe
-            build-linux/go-sha256-linux
-            build-macos/go-sha256-macos
+            build-windows/go-sha256.exe
+            build-linux/go-sha256
+            build-macos/go-sha256
