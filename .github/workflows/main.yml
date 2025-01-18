@@ -1,0 +1,55 @@
+name: Upload Go test results
+
+on: [push]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        go-version: [ '1.19', '1.20', '1.21.x' ]
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go-version }}
+          
+      - name: Install dependencies
+        run: go get .
+    
+      - name: Test with Go
+        run: go test -json > TestResults-${{ matrix.go-version }}-${{ matrix.os }}.json
+    
+      - name: Upload Go test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Go-results-${{ matrix.go-version }}-${{ matrix.os }}
+          path: TestResults-${{ matrix.go-version }}-${{ matrix.os }}.json
+    
+      - name: Build
+        if: ${{ matrix.go-version == '1.21.x' }}
+        run: go build -v ./...
+    
+      - name: Upload build artifact
+        if: ${{ matrix.go-version == '1.21.x' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact-${{ matrix.os }}
+          path: go-sha256-${{ matrix.os }}
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: $(date +'%Y%m%d')
+          name: Release $(date +'%Y-%m-%d')
+          files: |
+            go-sha256-windows.exe
+            go-sha256-linux
+            go-sha256-macos
