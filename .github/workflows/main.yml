@@ -31,7 +31,7 @@ jobs:
           path: TestResults-${{ matrix.os }}.json
     
       - name: Build
-        run: go build -v ./...
+        run: go build .
 
       - run: ls -la
     
