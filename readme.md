@@ -6,6 +6,8 @@ I had the idea to implement this after finding this website that explains the SH
 
 ## Usage
 
+An example file is provided here: [example.go](https://github.com/matthieuEv/go-sha256/blob/main/example.go)
+
 ### Build it yourself
 
 To build the project yourself, you need to have Go installed on your machine. You can download it from the [official website](https://golang.org/).
